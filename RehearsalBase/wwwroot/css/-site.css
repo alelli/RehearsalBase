@@ -1,0 +1,94 @@
+﻿:root {
+    --main-color: #32a4e5;
+    --main-light-color: #81cffc;
+    --main-dark-color: #06344f;
+    --lightest-color: #e8f7ff;
+    --shadow-color: #87b9d6;
+    --main-text-color: #0c5782;
+    --main-font: italic small-caps 16px/2 cursive;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    font: var(--main-font);
+}
+
+.content {
+    padding: 20px 40px 20px 40px;
+}
+
+header {
+    display: absolute;
+    height: 60px;
+    width: 100%;
+    background-color: var(--main-color);
+    border-bottom: 4px solid var(--main-light-color);
+}
+
+nav.menu ul {
+    display: flex;
+    list-style: none;
+    position: absolute;
+    top: 13px;
+    right: 40px;
+}
+
+nav.menu li {
+    margin-right: 10px;
+}
+
+nav.menu a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 20px 5px 20px;
+    font-size: 19px;
+    border: 1px solid;
+}
+
+nav.menu a:hover {
+    background-color: #50afe5;
+    transition: color 0.4s ease-in, background-color 0.3s ease-out;
+}
+
+nav.menu h4 {
+    color: #fff;
+    text-decoration: none;
+    font-size: 19px;
+    margin-right: 20px;
+}
+
+footer {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: var(--main-light-color);
+    height: 50px;
+}
+
+nav.footer_menu {
+    margin-left: 20px;
+    margin-top: 5px;
+}
+
+nav.footer_menu a {
+    color: var(--main-dark-color);
+    text-decoration: none;
+    padding: 5px 20px 5px 20px;
+    font-size: 19px;
+}
+
+nav.footer_menu ul {
+    display: flex;
+    list-style: none;
+    margin-right: 40px;
+}
+
+table.container {
+    width: 100%;
+}

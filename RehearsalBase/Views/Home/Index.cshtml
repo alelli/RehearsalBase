@@ -1,0 +1,76 @@
+﻿@model IEnumerable<RehearsalTime>
+@{
+    ViewBag.Title = "Reservation";
+
+    var firstDate = Model.First().Date;
+    var lastDate = Model.First().Date.AddDays(10);
+    while (firstDate.DayOfWeek != DayOfWeek.Monday)
+    {
+        firstDate = firstDate.AddDays(-1);
+    }
+
+}
+<link rel="stylesheet" type="text/css" href="~/css/StyleSheet.css" />
+<form method="get" action="~/Home/CheckData">
+    <table class="container">
+        <tr valign="top">
+            <td>
+                <div class="date__list">
+                    @if (Model == null)
+                    {
+                        <h1>Нет свободного времени!</h1>
+                    }
+                    else
+                    {
+                        foreach (var rehearsals in Model)
+                        {
+                            <div class="date__list__item">
+                                <h3 class="date__title">@rehearsals.Date</h3>
+
+                                @foreach (var time in rehearsals.Time)
+                                {
+                                    string id = "hour" + rehearsals.Date.Day.ToString() + time.Hour.ToString();
+                                    <input id="@id" name="dateTimes" value="@rehearsals.Date @time" class="time__input" unchecked type="checkbox" />
+                                    <label for="@id" class="time__label" time="@time"></label>
+                                }
+                            </div>
+                            
+                        }
+                    }
+                    <div align="center"><button id="show-more" type="reset">Показать больше</button></div>
+
+                </div>
+            </td>
+            <td align="right">
+                <table class="calendar" align="center" border="1">
+                    <thead>
+                        <tr height="50">
+                            <th>ПН</th>
+                            <th>ВТ</th>
+                            <th>СР</th>
+                            <th>ЧТ</th>
+                            <th>ПТ</th>
+                            <th>СБ</th>
+                            <th>ВС</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td></td></tr>
+                    </tbody>
+                </table>
+                <div class="select_category">
+                    <h3>Тип репетиции:</h3>
+                    <ul>
+                        <li><input type="radio" name="rehearsalCategory" value="1" /> Одиночная</li>
+                        <li><input type="radio" name="rehearsalCategory" value="2" /> С группой</li>
+                    </ul>
+                </div>
+                <div align="center"><button name="submit" type="submit">Записаться</button></div>
+            </td>
+        </tr>
+    </table>
+</form>
+@section Scripts{
+    <script src="~/js/show-more.js" asp-append-version="true"></script>
+    <script src="~/js/fill-calendar.js" asp-append-version="true"></script>
+}

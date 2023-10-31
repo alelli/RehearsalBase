@@ -1,0 +1,117 @@
+.date__list {
+    margin: 0 20px 0 20px;
+    border: 2px solid red;
+    color: var(--main-dark-color);
+    min-width: 100px;
+    max-width: 800px;
+}
+
+.date__list__item {
+    border: 1px solid;
+    margin-bottom: 20px;
+}
+
+.date__list__item:nth-child(n + 6) {
+    display: none;
+}
+
+.date__title {
+    font-size: 16px;
+    font-weight: bold;
+    height: 35px;
+}
+
+.time__input {
+    display: none;
+}
+
+.time__label {
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    margin: 0 10px 10px 0;
+    /* border: 1px solid #000; */
+    width: 120px;
+}
+
+.time__label:hover {
+    box-shadow: 5px 5px 10px var(--shadow-color);
+    transition: all 0.2s ease-out;
+}
+
+.time__label::before {
+    content: attr(time);
+    align-self: flex-start;
+    flex: 0 0 120px;
+    height: 50px;
+    background-color: var(--main-light-color);
+    border-radius: 5px;
+    margin: 0 10px 0 0;
+    border: 2px solid var(--main-color);
+}
+
+.time__input:checked+.time__label::after {
+    transform: scaleY(1);
+}
+
+.time__label::after {
+    transition: all 0.3s;
+    content: "";
+    text-align: center;
+    width: 113px;
+    height: 43px;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    background-color: var(--lightest-color);
+    opacity: 0.4;
+    border-radius: 4px;
+    transform: scaleY(0);
+}
+
+.date__list button#show-more {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid var(--main-color);
+    color: var(--main-color);
+    background: white;
+}
+
+.date__list button#show-more:hover {
+    background: var(--lightest-color);
+    transition: background-color 0.2s ease-out;
+}
+
+table.calendar {
+    width: 500px;
+    height: 350px;
+    margin-top: 35px;
+    margin-right: 20px;
+    border: 2px solid green;
+}
+
+table.calendar th {
+    color: var(--main-color);
+    width: 60px;
+}
+
+table.calendar td {
+    text-align: center;
+    height: 70px;
+}
+
+table.calendar a {
+    text-decoration: underline;
+    font-size: 22px;
+    font-weight: bold;
+    color: var(--main-dark-color);
+}
+
+table.calendar a.empty {
+    color: grey;
+    text-decoration: none;
+}

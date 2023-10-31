@@ -1,0 +1,66 @@
+.form {
+  max-width: 550px;
+  margin: 0px auto;
+  color: var(--main-dark-color);
+  padding: 30px 0;
+}
+.form * {
+  outline: none;
+}
+/* .form__body {
+} */
+.form__title {
+  font-size: 30px;
+  margin: 0 0 30px 0;
+}
+.form__item {
+  margin: 0 0 10px 0;
+}
+.form__label {
+  font-size: 18px;
+  /* display: block; label & text на разных строках*/
+  margin: 0 0 5px 0;
+}
+.form__input {
+  height: 30px;
+  padding: 0 20px;
+  border-radius: 5px;
+  width: 100%;
+  font: var(--main-font);
+  font-size: 18px;
+}
+.form__input:focus {
+  box-shadow: 0 0 15px var(--main-light-color);
+}
+.form__input._error {
+  box-shadow: 0 0 15px pink;
+}
+.form__button {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 30px;
+  color: var(--main-dark-color);
+  background-color: var(--main-light-color);
+  border-radius: 5px;
+  border: 1px solid var(--main-dark-color);
+  box-shadow: 0 2px var(--main-dark-color);
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+  position: relative;
+  top: 0;
+  margin: 50px 0 0 0;
+  font: var(--main-font);
+  font-weight: bold;
+  font-size: 18px;
+}
+.form__button:hover {
+  background-color: var(--main-color);
+}
+.form__button:active {
+  position: relative;
+  top: 3px;
+  box-shadow: 0 1px var(--main-dark-color);
+}

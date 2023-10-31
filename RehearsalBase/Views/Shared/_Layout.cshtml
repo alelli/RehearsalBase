@@ -1,0 +1,47 @@
+﻿@using Microsoft.AspNetCore.Authorization
+@inject IAuthorizationService AutorizationService
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>@ViewBag.Title - MuzTochka</title>
+  <link rel="stylesheet" type="text/css" href="/css/layout.css" />
+</head>
+
+<body>
+  <header>
+    <a href="#" class="logo"><span>Muz<span class="dark_part">Tochka</span></span></a>
+    <div class="menu">
+      <ul>
+        <li><a href="#">Правила</a></li>
+        @* @if ((await AutorizationService.AuthorizeAsync(User, "Name")).Succeeded) *@
+        @if (User.Identity is not null && User.Identity.IsAuthenticated)
+        {
+            <li><span class="user_name">@User.Identity.Name</span></li>
+            <li><a href="#">Мои репы</a></li>
+        }
+        else
+        {
+            <li><span class="user_name">Гость</span></li>
+            <li><a href="~/Account/Login" class="enter">Войти</a></li>
+        }
+      </ul>
+    </div>
+  </header>
+
+  <div class="wrapper">
+    @RenderBody()
+  </div>
+  <footer>
+    <div class="navigation">
+      <ul>
+        <li><a href="#">Контакты</a></li>
+        <li><a href="#">О нас</a></li>
+      </ul>
+    </div>
+  </footer>
+  @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

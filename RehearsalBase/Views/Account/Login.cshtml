@@ -1,0 +1,26 @@
+﻿@model Customer
+@{
+    ViewBag.Title = "Авторизация";
+}
+<link rel="stylesheet" type="text/css" href="/css/autorization.css" />
+<div class="form">
+    <form method="post" action="#" id="form" class="form__body">
+        <h1 class="form__title">Авторизация</h1>
+        <div class="form__item">
+            <label for="formEmail" class="form__label" value="@Model.CustomerEmail">Email:</label>
+            <input id="formEmail" type="text" name="email" class="form__input _req _email"/>
+        </div>
+        <div class="form__item">
+            <label for="formPassword" class="form__label" value="@Model.CustomerPassword">Пароль:</label>
+          <input id="formPassword" type="text" name="password" class="form__input _req _password" />
+        </div>
+        <div class="form__item" align="center">
+            <button class="form__button" type="submit">Отправить</button>
+        </div>
+    </form>
+    @* <input id="js-server-error" type="text" readonly value="@ViewBag.ServerError"/> *@
+    <h2>@ViewBag.ServerError</h2>
+</div>
+@section Scripts{
+    <script src="~/js/autorization-script.js"></script>
+}
